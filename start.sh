@@ -26,16 +26,6 @@ fi
 # extract the path (if any)
 pg_path="`echo $pg_url | grep / | cut -d/ -f2-`"
 
-export DB_POSTGRESDB_DATABASE=$pg_path
-export DB_POSTGRESDB_HOST=$pg_host
-export DB_POSTGRESDB_PORT=$pg_port
-export DB_POSTGRESDB_USER=$pg_user
-export DB_POSTGRESDB_PASSWORD=$pg_pass
-
-export N8N_HOST="$APP_NAME.herokuapp.com"
-export VUE_APP_URL_BASE_API="https://$APP_NAME.herokuapp.com/"
-export WEBHOOK_TUNNEL_URL="https://$APP_NAME.herokuapp.com/"
-
 if [ -z ${PORT+x} ]; then echo "PORT variable not defined, leaving N8N to default port."; else export N8N_PORT=$PORT; echo "N8N will start on '$PORT'"; fi
 
 n8n start
